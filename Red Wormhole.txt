@@ -1,0 +1,18 @@
+//Red Wormhole
+a = Drums('x..xo...',1/8)
+
+c = Synth({ maxVoices:10, attack:44 })
+	d = Arp( 'c4maj7', 1/8, 'updown', 2 ); d.target = c
+	c.amp(.05)
+  d.shuffle()
+
+b = Canvas()
+b.save()
+
+var r = 0
+b.draw = function(){
+  console.log(r++)
+  b.rotate(r)
+  b.polygon(b.center.x, b.center.y, 300, 3).fill('rgb('+r%255+',0,0)')                       
+  b.circle(b.center.x, b.center.y, r%100).fill(b.randomColor())
+}

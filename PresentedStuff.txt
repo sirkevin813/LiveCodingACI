@@ -1,0 +1,34 @@
+//From presentation:
+a = Drums('xoox-xo*')
+a._
+
+b = FM('stabs').note.seq(['b', 'g','c', 'a'],1/4)
+b.note.values.shuffle()
+
+c = Canvas()
+
+var r=0
+c.draw = function(){
+  r++
+  c.rotate(r)
+  c.polygon(c.center.x, c.center.y, 300, r%6).fill('rgb('+r%255+',0,255)')
+  c.circle(c.center.x, c.center.y, r%100).fill('rgb(0,255,0)')
+  
+}
+
+/*a = Drums('xoox-xo*')
+a._
+
+b = FM('stabs').note.seq(['b', 'g','c', 'a'],1/4)
+b.note.values.shuffle()
+
+c = Canvas()
+
+var r=0
+c.draw = function(){
+  r++
+  c.rotate(r)
+  //c.polygon(c.center.x, c.center.y, 300, r%6).fill('rgb('+r%255+',0,255)')
+  c.circle(c.center.x, c.center.y, r%100).fill('rgb(0,255,0)')
+  c.circle(c.center.x+r%350, c.center.y, 50).fill(c.randomColor())
+}*/

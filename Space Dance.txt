@@ -1,0 +1,26 @@
+a= Drums('xoxxxoo-')
+
+b = FM('stabs').note.seq(['b#', 'a', 'b', 'g'], 1/8)
+
+c = Synth({ maxVoices:10, attack:44 })
+d = Arp( 'd2min7', 1/8, 'updown', 2 ); d.target = c
+d.shuffle()
+c.amp(.05)
+
+g = c.fx.add(Chorus())
+
+e = Canvas()
+
+sides = 3
+f = Seq( 
+  function() { 
+    e.fade(.5)
+  	sides+=1
+    if (sides>5)
+      sides=3
+    x_offset = Math.random() * (100 + 100) - 100;
+    y_offset = Math.random() * (100 + 100) - 100;
+    e.polygon( e.center.x + x_offset, e.center.y + y_offset, 300, sides).fill( e.randomColor() )
+  },
+        1/4 )
+
